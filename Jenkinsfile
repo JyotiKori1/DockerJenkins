@@ -22,17 +22,16 @@ pipeline {
       //  }
         stage('Push Image') {
             steps {
-		     echo "Before password binding"
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable:'pass',usernameVariable:'user')])
 			        //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 			        //	app.push("${BUILD_NUMBER}")
 			        //    app.push("latest")
-		   
 			        bat "docker login --username=${user} --password=${pass}"
-			      //  bat "docker push JyotiKori/selenium-docker:latest"
+			        echo "docker login completed"
+			        bat "docker push JyotiKori/selenium-docker:latest"
+			        echo "docker push completed"
 			    
                 }
             }
         }
     }
-
