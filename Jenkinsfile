@@ -26,8 +26,9 @@ pipeline {
 			        //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 			        //	app.push("${BUILD_NUMBER}")
 			        //    app.push("latest")
+		    echo "Before password binding"
 			        bat "docker login --username=${user} --password=${pass}"
-			        bat "docker push JyotiKori/selenium-docker:latest"
+			      //  bat "docker push JyotiKori/selenium-docker:latest"
 			    
                 }
             }
