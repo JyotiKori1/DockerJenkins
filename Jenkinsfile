@@ -16,7 +16,7 @@ pipeline {
        stage('Build Image') {
         steps {
 		
-             bat "docker.build("jyotikori/selenium-docker")"
+             bat "docker build jyotikori/selenium-docker"
 	}
         }
         stage('Push Image') {
