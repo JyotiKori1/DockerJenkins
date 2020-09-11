@@ -15,7 +15,9 @@ pipeline {
         }
        stage('Build Image') {
         steps {
+		step {
              app = docker.build("jyotikori/selenium-docker")
+		}
            }
         }
         stage('Push Image') {
