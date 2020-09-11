@@ -13,13 +13,11 @@ pipeline {
                 bat 'mvn clean package -DskipTests'
             }
         }
-   //     stage('Build Image') {
-   //         steps {
-    //            script {
-     //           	app = docker.build("jyotikori/selenium-docker")
-       //         }
-       //     }
-      //  }
+       stage('Build Image') {
+        steps {
+             app = docker.build("jyotikori/selenium-docker")
+           }
+        }
         stage('Push Image') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable:'pass',usernameVariable:'user')])
