@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Push Image') {
             steps {
-                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable:'pass',usernameVariable:'user')])
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', passwordVariable:'pass',usernameVariable:'user')]) {
 			        //docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
 			        //	app.push("${BUILD_NUMBER}")
 			        //    app.push("latest")
@@ -29,7 +29,7 @@ pipeline {
 			        echo "docker login completed"
 			        bat "docker push jyotikori/selenium-docker:latest"
 			        echo "docker push completed"
-			    
+		}
                 }
             }
         }
